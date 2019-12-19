@@ -18,7 +18,7 @@
         </ul>
         <ul class="right">
           <li><a href="/about">About</a></li>
-          {% if user.is.authenticated %}
+          {% if user.is_authenticated %}
             <li><a href="/artists">My Artists</a></li>
             <li><a href="/events">My Events</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
