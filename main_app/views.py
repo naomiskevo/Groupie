@@ -1,15 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-class Artist:
-    def __init__(self, name):
-        self.name = name
-
-artists = [
-    Artist('Justin Timberlake'),
-    Artist('Chance the Rapper'),
-    Artist('Glassing')
-]
 
 # Create your views here.
 def home(request):
