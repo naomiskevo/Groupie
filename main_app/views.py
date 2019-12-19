@@ -1,10 +1,17 @@
 from django.shortcuts import render
 from .models import Artist
+import requests
+import os
 
 
 # Create your views here.
 def home(request):
+    my_key = os.environ['SECRET_KEY']
+    req = requests.get('http://eventful.com/events')
+    print('----------------------------------**********')
+    print(req)
     return render(request, 'index.html')
+    # make request to eventul api
 
 def about(request):
     return render(request, 'about.html')
