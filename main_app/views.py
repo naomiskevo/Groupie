@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Artist
 
 
 # Create your views here.
@@ -10,4 +11,5 @@ def about(request):
     return render(request, 'about.html')
 
 def artists_index(request):
+    artists = Artist.objects.all()
     return render(request, 'artists/index.html', { 'artists': artists })
