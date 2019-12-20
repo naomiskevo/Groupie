@@ -10,7 +10,7 @@ With this app, keeping tabs on your favorite local artists just got a lot easier
 <a href="https://docs.google.com/presentation/d/1rX2UsgPlWbdwC6bApwqBDTm4tiYba6nc6R2dcXu1leY/edit?usp=sharing">Pitch Deck</a>
 
 ### Instuctions
-Simply create an account and search events or artists in your area. Add your favorite artists and keep track of their upcoming events. Add their events to your schedule. Never miss out on you favorite events again
+Simply create an account and search events or artists in your area. Add your favorite artists and keep track of their upcoming events. Add their events to your schedule. Never miss out on you favorite events again.
 
 ### Screenshots
 
