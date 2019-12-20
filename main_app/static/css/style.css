@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url(https://freedesignfile.com/upload/2016/10/Cheering-crowd-at-a-rock-concert-HD-picture-09.jpg);
   }
 
   main {
