@@ -10,16 +10,16 @@ import os
 
 # Create your views here.
 def show(request):
-    print('the route is working!!!')
-    # myKey = os.environ['SECRET_KEY']
-    # appKey = os.environ['APP_ID']
-    # req = requests.get(f"http://rest.bandsintown.com/artists/metallica?app_id={appKey}")
-    # print('----------------<(^_^)>-----------------------')    
-    # req = req.json()
-    # print (req['name'])
-    # print('----------------<(^_^)>-----------------------')
-    # return render(request, 'index.html')
-    # make request to eventul api
+    artist = request.POST['name_field']
+    myKey = os.environ['SECRET_KEY']
+    appKey = os.environ['APP_ID']
+    req = requests.get(f"http://rest.bandsintown.com/artists/{artist}?app_id={appKey}")
+    req = req.json()
+    artist = req
+    print (req['name'])
+    return render(request, 'artists/index.html',{
+      'artist': artist
+    })
 
 def home(request):
     myKey = os.environ['SECRET_KEY']
