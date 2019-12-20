@@ -11,6 +11,7 @@ import os
 # Create your views here.
 def show(request):
     print('the route is working!!!')
+    print(request.POST)
     # myKey = os.environ['SECRET_KEY']
     # appKey = os.environ['APP_ID']
     # req = requests.get(f"http://rest.bandsintown.com/artists/metallica?app_id={appKey}")

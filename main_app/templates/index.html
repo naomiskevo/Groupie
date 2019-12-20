@@ -10,7 +10,7 @@
     
     <form action="artists/index" method="POST">
         {% csrf_token %}
-        <input type="text">
+        <input type="text" name='name_field'>
         <input type="submit" value="Submit" class="btn">
     </form>
 
