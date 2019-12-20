@@ -8,7 +8,7 @@ import os
 
 # Create your views here.
 def show(request):
-    print(request)
+    print('the route is working!!!')
     # myKey = os.environ['SECRET_KEY']
     # appKey = os.environ['APP_ID']
     # req = requests.get(f"http://rest.bandsintown.com/artists/metallica?app_id={appKey}")
@@ -22,12 +22,10 @@ def show(request):
 def home(request):
     myKey = os.environ['SECRET_KEY']
     appKey = os.environ['APP_ID']
-    req = requests.get(f"http://eventful.com/json/events?q=music&l=San+Diego")
-    
+    req = requests.get(f"http://eventful.com/json/events?q=music&l=TX&t=December+2019")
     print(req)
     print('----------------<(^_^)>-----------------------')    
     req = req.json()
-    # print (req['name'])
     print('----------------<(^_^)>-----------------------')
     print(req)
     return render(request, 'index.html')
