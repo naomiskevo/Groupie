@@ -6,14 +6,36 @@ import requests
 import os
 
 
+
+
 # Create your views here.
+def show(request):
+    print(request)
+    # myKey = os.environ['SECRET_KEY']
+    # appKey = os.environ['APP_ID']
+    # req = requests.get(f"http://rest.bandsintown.com/artists/metallica?app_id={appKey}")
+    # print('----------------<(^_^)>-----------------------')    
+    # req = req.json()
+    # print (req['name'])
+    # print('----------------<(^_^)>-----------------------')
+    # return render(request, 'index.html')
+    # make request to eventul api
+
 def home(request):
-    my_key = os.environ['SECRET_KEY']
-    req = requests.get('http://eventful.com/events')
-    print('----------------------------------**********')
+    myKey = os.environ['SECRET_KEY']
+    appKey = os.environ['APP_ID']
+    req = requests.get(f"http://eventful.com/json/events?q=music&l=San+Diego")
+    
+    print(req)
+    print('----------------<(^_^)>-----------------------')    
+    req = req.json()
+    # print (req['name'])
+    print('----------------<(^_^)>-----------------------')
     print(req)
     return render(request, 'index.html')
     # make request to eventul api
+
+
 
 def about(request):
     return render(request, 'about.html')
