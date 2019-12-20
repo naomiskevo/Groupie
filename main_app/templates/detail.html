@@ -6,12 +6,16 @@
 
 <h1>{{ artist.name }}</h1>
 
-<img src="{{ artist.image_url }}" alt="artist">  
+<img class="materialboxed" id="artist-img" width="650" src="{{ artist.image_url }}" alt="artist">  
 {% for info in events %}
-<h3> <a href="/events">Add Event</a>Event {{ info.venue.name }} </h3>
-<h3>State {{ info.venue.region }} </h3>
-<h3>City {{ info.venue.city }} </h3>
-<h3>Date/Time {{ info.datetime }} </h3>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ info.venue.name }}</span>
+            <p>Location: {{ info.venue.city }} {{ info.venue.region }}</p>
+            <p>Date/Time {{ info.datetime }}</p> 
+            <button><a href="/events">Add Event</a></button>
+        </div>
+    </div>
 
 
 {% endfor %}
