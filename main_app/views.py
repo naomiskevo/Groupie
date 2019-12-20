@@ -15,10 +15,14 @@ def show(request):
     appKey = os.environ['APP_ID']
     req = requests.get(f"http://rest.bandsintown.com/artists/{artist}?app_id={appKey}")
     req = req.json()
+    events = requests.get(f"http://rest.bandsintown.com/artists/{artist}/events?app_id={appKey}")
+    events = events.json()
     artist = req
     print (req['name'])
+    print(events)
     return render(request, 'detail.html',{
-      'artist': artist
+      'artist': artist,
+      'events': events
     })
 
 def home(request):
@@ -31,7 +35,7 @@ def home(request):
     print('----------------<(^_^)>-----------------------')
     print(req)
     return render(request, 'index.html')
-    # make request to eventul api
+    # make a post request to eventbrite api req = requests.post()
 
 
 
