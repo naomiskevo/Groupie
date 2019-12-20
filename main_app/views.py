@@ -18,25 +18,25 @@ def show(request):
     events = requests.get(f"http://rest.bandsintown.com/artists/{artist}/events?app_id={appKey}")
     events = events.json()
     artist = req
-    print (req['name'])
+    print (artist)
+    print('----------------<(^_^)>-----------------------')
     print(events)
     return render(request, 'detail.html',{
       'artist': artist,
       'events': events
     })
 
+
 def home(request):
     myKey = os.environ['SECRET_KEY']
-    appKey = os.environ['APP_ID']
-    req = requests.get(f"http://eventful.com/json/events?q=music&l=TX&t=December+2019")
-    print(req)
-    print('----------------<(^_^)>-----------------------')    
+    brite = os.environ['EVENTBRITE_TOKEN']
+    req = requests.get(f"https://www.eventbriteapi.com/v3/users/me/?token={brite}")
     req = req.json()
-    print('----------------<(^_^)>-----------------------')
-    print(req)
     return render(request, 'index.html')
-    # make a post request to eventbrite api req = requests.post()
 
+
+def events_index(request):
+    return render(request, 'events/index.html')
 
 
 def about(request):
