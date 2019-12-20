@@ -17,7 +17,7 @@ def show(request):
     req = req.json()
     artist = req
     print (req['name'])
-    return render(request, 'artists/index.html',{
+    return render(request, 'detail.html',{
       'artist': artist
     })
 
