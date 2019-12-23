@@ -3,7 +3,7 @@
 
 <h1>{{ artist.name }}</h1>
 
-<form action="{% url 'artist_create' %}" method="POST">
+<form action="artist/index" method="POST">
     {% csrf_token %}
     <input type="hidden" name="name" value="{{ artist.name ">
     <button type="submit">Add Artist</button>
