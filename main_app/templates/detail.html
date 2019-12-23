@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<h1>{{ artist.name }}</h1>
 
-
+<form action="{% url 'artist_create' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="name" value="{{ artist.name ">
+    <button type="submit">Add Artist</button>
+</form>
 
 <h1>{{ artist.name }}</h1>
-<div style="text-align: center;">
-    <img class="center" id="artist-img" width="450" src="{{ artist.image_url }}" alt="artist">
-</div>
-{% for info in events %}
-    <div style="text-align: center;" class="card container">
-        <div class="card-content">
-            <span class="card-title">{{ info.venue.name }}</span>
-            <p>Location: {{ info.venue.city }} {{ info.venue.region }}</p>
-            <p>Date/Time {{ info.datetime }}</p> 
-            <button><a href="/events">Add Event</a></button>
-        </div>
-    </div>
+<img src="{{ artist.image_url }}" alt="artist">  
 
+<!-- ['name', 'facebook', 'bandsintown', 'user'] -->
+ 
+
+{% for info in events %}
+
+<h3> <a href="/events">Add Event</a>Event {{ info.venue.name }} </h3>
+<h3>State {{ info.venue.region }} </h3>
+<h3>City {{ info.venue.city }} </h3>
+<h3>Date/Time {{ info.datetime }} </h3>
 
 {% endfor %}
 {% endblock %}
