@@ -23,7 +23,7 @@ def artist_create(request, user_id):
   print(user_id)
   user = User.objects.get(id=user_id)
   bio = 'fake bio data'
-  print('----------------<(^_^)>-----------------------')
+  print('----------------<(^o^)>-----------------------')
   print(user)
   data = request.POST.copy()
   name = data.get('name')  #use this method for all form fields that are going into the model
@@ -55,7 +55,6 @@ def home(request):
     req = requests.get(f"https://app.ticketmaster.com/discovery/v2/events?apikey={myKey}&keyword=Music&locale=*")
     req = req.json()
     print('------------------<(O_O)>-----------------')
-    print(req)
     return render(request, 'index.html')
 
 
