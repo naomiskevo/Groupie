@@ -5,10 +5,11 @@
 
 
 <h1>{{ artist.name }}</h1>
-
-<img class="materialboxed" id="artist-img" width="650" src="{{ artist.image_url }}" alt="artist">  
+<div style="text-align: center;">
+    <img class="center" id="artist-img" width="450" src="{{ artist.image_url }}" alt="artist">
+</div>
 {% for info in events %}
-    <div class="card">
+    <div style="text-align: center;" class="card container">
         <div class="card-content">
             <span class="card-title">{{ info.venue.name }}</span>
             <p>Location: {{ info.venue.city }} {{ info.venue.region }}</p>
