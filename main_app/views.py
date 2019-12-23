@@ -18,16 +18,17 @@ from django.contrib.auth.models import User
 #   user = User.objects.get(id=kwargs['user_id'])
 #   do something with this user
 
-def artist_create(request):
+def artist_create(request, user_id):
   user_id = request.user.id
   print(user_id)
   user = User.objects.get(id=user_id)
+  bio = 'fake bio data'
   print('----------------<(^_^)>-----------------------')
   print(user)
   data = request.POST.copy()
   name = data.get('name')  #use this method for all form fields that are going into the model
   print(name)
-  artist = Artist.objects.create(name=name)
+  artist = Artist.objects.create(user_id=user_id, name=name, bio=bio)
   print(artist)
   return render(request, 'artists/index.html')
 
