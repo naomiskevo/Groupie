@@ -1,28 +1,32 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Artist
+from django.views.generic.edit import ModelFormMixin
+from .models import Artist, Event
 import requests
 import os
 
 
 
 
+
 # Create your views here.
+    
+
+
+
 def show(request):
     artist = request.POST['name_field']
     myKey = os.environ['SECRET_KEY']
     appKey = os.environ['APP_ID']
     req = requests.get(f"http://rest.bandsintown.com/artists/{artist}?app_id={appKey}")
     req = req.json()
+    print(req['name'])
     events = requests.get(f"http://rest.bandsintown.com/artists/{artist}/events?app_id={appKey}")
     events = events.json()
-    artist = req
-    print (artist)
-    print('----------------<(^_^)>-----------------------')
-    print(events)
     return render(request, 'detail.html',{
-      'artist': artist,
+      'artist': req,
       'events': events
     })
 
