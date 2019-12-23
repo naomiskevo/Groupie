@@ -14,7 +14,9 @@ import os
 # Create your views here.
     
 
-
+def artist_create(request):
+  return render(request, 'detail.html')
+  
 
 def show(request):
     artist = request.POST['name_field']
@@ -22,11 +24,12 @@ def show(request):
     appKey = os.environ['APP_ID']
     req = requests.get(f"http://rest.bandsintown.com/artists/{artist}?app_id={appKey}")
     req = req.json()
-    print(req['name'])
     events = requests.get(f"http://rest.bandsintown.com/artists/{artist}/events?app_id={appKey}")
     events = events.json()
+    artist = req
+    print('----------------<(^_^)>-----------------------')
     return render(request, 'detail.html',{
-      'artist': req,
+      'artist': artist,
       'events': events
     })
 

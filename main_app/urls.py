@@ -7,5 +7,5 @@ urlpatterns = [
     path('artists/', views.artists_index, name='index'),
     path('accounts/signup/', views.signup, name='signup'),
     path('detail', views.show, name='artist'),
-    path('events/index', views.events, name='artist'),
+    path('events', views.events_index, name='events'),
 ]
