@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class='container center-align'>
 <h1>{{ artist.name }}</h1>
-
 <form action="artists/index" method="POST">
     {% csrf_token %}
     <input type="hidden" name="name" value="{{ artist.name }}">
-    <button type="submit">Add Artist</button>
+    <button class="btn waves-effect waves-light green lighten-2" type="submit">Add Artist</button>
 </form>
+<br>
 
-<h1>{{ artist.name }}</h1>
 <img src="{{ artist.image_url }}" alt="artist">  
 
+</div>
+<br>
 <!-- ['name', 'facebook', 'bandsintown', 'user'] -->
  
 
 {% for info in events %}
-
-<h3> <a href="/events">Add Event</a>Event {{ info.venue.name }} </h3>
+<div class="container center-align" style='width:80%'>
+<div class="card blue blue lighten-5">
+    <div class="card-content blue-grey lighten-1">   
+<h3>Event {{ info.venue.name }} </h3>
+    </div>
 <h3>State {{ info.venue.region }} </h3>
 <h3>City {{ info.venue.city }} </h3>
 <h3>Date/Time {{ info.datetime }} </h3>
+
+<div class="card-content blue-grey lighten-4">
+<button class="btn waves-effect waves-light green lighten-2"> <a href="/events" class="white-text text-darken-2">Add Event</a></button>
+</div>
+</div>
+</div>
+
+<br>
+
 
 {% endfor %}
 {% endblock %}
