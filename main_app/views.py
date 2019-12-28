@@ -7,16 +7,31 @@ from .models import Artist, Event
 import requests
 import os
 
-
+from django.db import models
+from django.contrib.auth.models import User
 
 
 
 # Create your views here.
     
+# def get_context_data(self, **kwargs):
+#   user = User.objects.get(id=kwargs['user_id'])
+#   do something with this user
 
 def artist_create(request):
-  return render(request, 'detail.html')
-  
+  user_id = request.user.id
+  print(user_id)
+  user = User.objects.get(id=user_id)
+  bio = 'fake bio data'
+  print(user)
+  print('----------------<(^_^)>-----------------------')
+  data = request.POST.copy()
+  name = data.get('name')  #use this method for all form fields that are going into the model
+  print(name)
+  artist = Artist.objects.create(user_id=user_id, name=name, bio=bio)
+  print(artist)
+  return render(request, 'artists/index.html')
+
 
 def show(request):
     artist = request.POST['name_field']
@@ -33,12 +48,14 @@ def show(request):
       'events': events
     })
 
-
+# https://Ticketmasterstefan-skliarovV1.p.rapidapi.com/searchEvents
 def home(request):
-    myKey = os.environ['SECRET_KEY']
-    brite = os.environ['EVENTBRITE_TOKEN']
-    req = requests.get(f"https://www.eventbriteapi.com/v3/users/me/?token={brite}")
+  # Example: https://app.ticketmaster.com/discovery/v2/events.json?apikey=VN3z590lf4nzKObwvWNHmCnXUwY7WU6j
+    myKey = os.environ['TICKET_MASTER']
+    req = requests.get(f"https://app.ticketmaster.com/discovery/v2/events?apikey={myKey}&keyword=Music&locale=*")
     req = req.json()
+    print('------------------<(O_O)>-----------------')
+    # print(req)
     return render(request, 'index.html')
 
 
