@@ -55,7 +55,7 @@ def add_artist(request, artist_id):
     # you have the user already (request.user), no need to get from the db
     new_artist.user = request.user
     new_artist.save()
-  return redirect('/artists/index.html')
+  return redirect('/artists/')
 
 
 
