@@ -60,6 +60,7 @@ def show(request):
       'artist_form': artist_form
     }) 
 
+
 def add_photo(request, event_id):
 	# photo-file was the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)
@@ -79,6 +80,16 @@ def add_photo(request, event_id):
       print('An error occurred uploading file to S3')
   return redirect('events/index.html', event_id=event_id)
   
+# =======
+# # https://Ticketmasterstefan-skliarovV1.p.rapidapi.com/searchEvents
+# def home(request):
+#   # Example: https://app.ticketmaster.com/discovery/v2/events.json?apikey=VN3z590lf4nzKObwvWNHmCnXUwY7WU6j
+#     myKey = os.environ['TICKET_MASTER']
+#     req = requests.get(f"https://app.ticketmaster.com/discovery/v2/events?apikey={myKey}&keyword=Music&locale=*")
+#     req = req.json()
+#     print('------------------<(O_O)>-----------------')
+#     return render(request, 'index.html')
+# >>>>>>> bleeding-edge
 
 def home(request):
   return render(request, 'index.html') 
