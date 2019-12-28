@@ -23,6 +23,10 @@ def artist_create(request):
   print(user_id)
   user = User.objects.get(id=user_id)
   bio = 'fake bio data'
+<<<<<<< HEAD
+=======
+  print('----------------<(^o^)>-----------------------')
+>>>>>>> b89a03e6ddc04b061206855895581a014350da84
   print(user)
   print('----------------<(^_^)>-----------------------')
   data = request.POST.copy()
@@ -55,7 +59,10 @@ def home(request):
     req = requests.get(f"https://app.ticketmaster.com/discovery/v2/events?apikey={myKey}&keyword=Music&locale=*")
     req = req.json()
     print('------------------<(O_O)>-----------------')
+<<<<<<< HEAD
     # print(req)
+=======
+>>>>>>> b89a03e6ddc04b061206855895581a014350da84
     return render(request, 'index.html')
 
 
