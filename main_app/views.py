@@ -18,31 +18,44 @@ from django.contrib.auth.models import User
 
 # Create your views here.
     
-def add_artist(request, artist_id):
-  # create the ModelForm using the data in request.POST
+# def add_artist(request, artist_id):
+#   # create the ModelForm using the data in request.POST
+#   form = ArtistForm(request.POST)
+#   # validate the form
+#   if form.is_valid():
+#     # don't save the form to the db until it
+#     # has the artist_id assigned
+#     new_artist = form.save(commit=False)
+#     new_artist.artist_id = artist_id
+#     new_artist.save()
+#   return redirect('artists/index.html', artist_id=artist_id)
+
+# def artist_create(request):
+#   user_id = request.user.id
+#   print(user_id)
+#   user = User.objects.get(id=user_id)
+#   artist_bio = 'fake bio data'
+#   print(user)
+#   data = request.POST.copy()
+#   artist_name = data.get('name')  
+#   print(artist_name)
+#   artist = Artist(name=artist_name, bio=artist_bio)
+#   artist.save()
+#   return render(request, 'artists/index.html')
+
+
+def add_artist(request):
+  # create the custom ModelForm using the data in request.POST
+  console.log('----------------------------<(^_^)>--------')
   form = ArtistForm(request.POST)
   # validate the form
   if form.is_valid():
-    # don't save the form to the db until it
-    # has the artist_id assigned
+    # don't save the form until the user_id is assigned
     new_artist = form.save(commit=False)
-    new_artist.artist_id = artist_id
+    # you have the user already (request.user), no need to get from the db
+    new_artist.user = request.user
     new_artist.save()
-  return redirect('artists/index.html', artist_id=artist_id)
-
-def artist_create(request):
-  user_id = request.user.id
-  print(user_id)
-  user = User.objects.get(id=user_id)
-  artist_bio = 'fake bio data'
-  print(user)
-  data = request.POST.copy()
-  artist_name = data.get('name')  
-  print(artist_name)
-  artist = Artist(name=artist_name, bio=artist_bio)
-  artist.save()
-  return render(request, 'artists/index.html')
-
+  return redirect('artists/index.html')
 
 
 
