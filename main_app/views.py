@@ -44,9 +44,9 @@ from django.contrib.auth.models import User
 #   return render(request, 'artists/index.html')
 
 
-def add_artist(request):
+def add_artist(request, artist_id):
   # create the custom ModelForm using the data in request.POST
-  console.log('----------------------------<(^_^)>--------')
+  print('----------------------------<(^_^)>--------')
   form = ArtistForm(request.POST)
   # validate the form
   if form.is_valid():
@@ -55,7 +55,7 @@ def add_artist(request):
     # you have the user already (request.user), no need to get from the db
     new_artist.user = request.user
     new_artist.save()
-  return redirect('artists/index.html')
+  return redirect('/artists/index.html')
 
 
 
