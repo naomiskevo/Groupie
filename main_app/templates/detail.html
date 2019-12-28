@@ -4,7 +4,7 @@
 <div class='container center-align'>
 <h1>{{ artist.name }}</h1>
 
-<form method="post">
+<form action="{% url 'add_artist' artist.id %}" method="post">
   {% csrf_token %}
   {{ artist_form.as_p }}
   <input type="submit" class="btn" value="Add Artist">
