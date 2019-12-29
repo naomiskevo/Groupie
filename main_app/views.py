@@ -35,6 +35,21 @@ def add_artist(request, artist_id):
     'artists': new_artist
   })
 
+def add_event(request, event_id):
+  # create the custom ModelForm using the data in request.POST
+  print('----------------------------<(^_^)>--------')
+  form = EventForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form until the user_id is assigned
+    new_event = form.save(commit=False)
+    # you have the user already (request.user), no need to get from the db
+    new_event.user = request.user
+    new_event.save()
+  return redirect('/events/', {
+    'events': new_event
+  })
+
 
 
 def show(request):
@@ -44,6 +59,7 @@ def show(request):
     req = req.json()
     events = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}/events?app_id={appKey}")
     events = events.json()
+    print(events)
     artist_form = ArtistForm()
     return render(request, 'detail.html',{
       'artist': req,
@@ -57,7 +73,6 @@ def show(request):
 class ArtistDelete(DeleteView):
   model = Artist
   success_url = '/artists/'
-  print('we made it to artist delete AAFFFFFF')
 
 
 

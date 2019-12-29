@@ -9,5 +9,6 @@ urlpatterns = [
     path('detail', views.show, name='artist'),
     path('events', views.events_index, name='events'),
     path('artists/<int:artist_id>/add_artist/', views.add_artist, name='add_artist'),
+    path('events/<int:event_id>/add_event/', views.add_event, name='add_event'),
     path('artists/<int:pk>/delete/', views.ArtistDelete.as_view(), name='artist_delete'),
 ]

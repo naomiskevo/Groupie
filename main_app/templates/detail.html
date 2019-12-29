@@ -24,6 +24,7 @@
 <br>
 
 <h1>Upcoming Events</h1>
+<h1>{{ events.id }}</h1>
 
 <br>
 </div>
@@ -43,7 +44,11 @@
 <p>Date/Time: {{ info.datetime }} </p>
 
 <div class="card-content">
-<button class="btn waves-effect waves-light blue darken-4"> <a href="/events" class="white-text text-darken-2">Add Event</a></button>
+  <form action="{% url 'add_event' event.id %}" method="post">
+    {% csrf_token %}
+    {{ event_form.as_p }}
+    <input type="submit" class="btn blue darken-4" value="Add Event">
+  </form>
 </div>
 </div>
 </div>
