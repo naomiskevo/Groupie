@@ -9,10 +9,19 @@
     <div class="container" style='width:50%'>
     <form class="search-box" action="detail" method="POST">
         {% csrf_token %}
-        <input type="text" name='name_field'class="blue-grey lighten-4">
+        <div class='row'>
+        <div class='container col s10'>
+       <input style= 'border-radius: 15px;'type="text" name='name_field'class="blue-grey lighten-4">
+        </div>
+        <div class='container col s2'>
         <input type="submit" value="Search" class="btn blue-grey darken 2">
+        </div>
+    </div>
     </form>
 </div>
+
+
+
 <br>
 <div class = 'container'>
 <div w-type="event-discovery" w-tmapikey="pLOeuGq2JL05uEGrZG7DuGWu6sh2OnMz" w-googleapikey="YOUR_GOOGLE_API_KEY" w-keyword="" w-theme="grid" w-colorscheme="custom" w-width="100%" w-height="550" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Los Angeles" w-period="week" w-layout="fullwidth" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_6f6af" w-countrycode="US" w-source="" w-branding="Ticketmaster" w-showloadmorebutton="true" w-backgroundcolor="#c1cbd1" w-poweredbybackgroundcolor="#217582" w-latlong=""></div>
