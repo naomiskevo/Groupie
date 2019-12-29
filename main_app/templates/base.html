@@ -10,13 +10,14 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js" defer></script>
+  <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5e08b8f8de9d4c0012d1058a&product=sticky-share-buttons"></script>
 </head>
 <body>
   <header class="navbar-fixed">
-    <nav class="blue-grey darken-2">
+    <nav class="blue darken-4">
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Groupie&nbsp;&nbsp;</a></li>
+          <li><a href="/" style='font-family: verdana' class="left brand-logo">&nbsp;&nbsp;Groupie&nbsp;&nbsp;</a></li>
         </ul>
         <ul class="right">
           <li><a href="/about">About</a></li>
@@ -32,13 +33,13 @@
       </div>
     </nav>
   </header>
-  <main class="blue-grey lighten-5" class="container">
+  <main class='grey lighten-5'>
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="blue-grey darken-2" class="page-footer">
+  <footer class="blue darken-4" class="page-footer">
     <div class="center">
-        <span class="blue-grey darken-2">All Rights Reserved, &copy; 2020 Sky-Hawk Inc &nbsp;</span>
+        <span class="blue darken-4">All Rights Reserved, &copy; 2020 Sky-Hawk Inc &nbsp;</span>
     </div>
   </footer>
 </body>
