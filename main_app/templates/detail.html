@@ -7,7 +7,7 @@
 <form action="{% url 'add_artist' artist.id %}" method="post">
   {% csrf_token %}
   {{ artist_form.as_p }}
-  <input type="submit" class="btn" value="Add Artist">
+  <input type="submit" class="btn blue darken-4" value="Add Artist">
 </form>
 
 
@@ -34,8 +34,8 @@
 
  
 
-<div class="card hoverable blue lighten-5">
-    <div class="card-content blue-grey lighten-1">   
+<div class="card hoverable grey lighten-3">
+    <div class="card-content blue lighten-3">   
 <p>{{ info.venue.name }} </p>
     </div>
 <p>State: {{ info.venue.region }} </p>
@@ -43,7 +43,7 @@
 <p>Date/Time: {{ info.datetime }} </p>
 
 <div class="card-content">
-<button class="btn waves-effect waves-light green lighten-2"> <a href="/events" class="white-text text-darken-2">Add Event</a></button>
+<button class="btn waves-effect waves-light blue darken-4"> <a href="/events" class="white-text text-darken-2">Add Event</a></button>
 </div>
 </div>
 </div>
