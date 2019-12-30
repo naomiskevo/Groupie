@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import ModelFormMixin
 from django.db import models
 from .models import Artist, Event
-from .forms import ArtistForm
+from .forms import ArtistForm, EventForm
 import requests
 import os
 import json
@@ -61,10 +61,12 @@ def show(request):
     events = events.json()
     print(events)
     artist_form = ArtistForm()
+    event_form = EventForm()
     return render(request, 'detail.html',{
       'artist': req,
       'events': events,
-      'artist_form': artist_form
+      'artist_form': artist_form,
+      'event_form': event_form
     }) 
 
 
