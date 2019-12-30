@@ -18,17 +18,10 @@ from django.contrib.auth.models import User
 
 # Create your views here.
     
-
-
 def add_artist(request, artist_id):
-  # create the custom ModelForm using the data in request.POST
-  print('----------------------------<(^_^)>--------')
   form = ArtistForm(request.POST)
-  # validate the form
   if form.is_valid():
-    # don't save the form until the user_id is assigned
     new_artist = form.save(commit=False)
-    # you have the user already (request.user), no need to get from the db
     new_artist.user = request.user
     new_artist.save()
   return redirect('/artists/', {
@@ -36,14 +29,9 @@ def add_artist(request, artist_id):
   })
 
 def add_event(request, event_id):
-  # create the custom ModelForm using the data in request.POST
-  print('----------------------------<(^_^)>--------')
   form = EventForm(request.POST)
-  # validate the form
   if form.is_valid():
-    # don't save the form until the user_id is assigned
     new_event = form.save(commit=False)
-    # you have the user already (request.user), no need to get from the db
     new_event.user = request.user
     new_event.save()
   return redirect('/events/', {
@@ -76,6 +64,9 @@ class ArtistDelete(DeleteView):
   model = Artist
   success_url = '/artists/'
 
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/events/'
 
 
 

@@ -2,10 +2,11 @@
 {% block content %}
 
 <div class="container center-align">
-<h1> My Artists</h1>
+<h1> My Events</h1>
 </div>
 
 <div class = "row">
+{% if event %}
 {% for event in events %}
 <div class="container center-align">
     <div class="card hoverable blue lighten-5">
@@ -16,10 +17,10 @@
     </div>
 </div>
 </div>
-<a class="btn" href="{% url 'artist_delete' artist.id %}">Delete</a>
-
+<a class="btn" href="{% url 'event_delete' event.id %}">Delete</a>
+{% else %}
+<h1>You have no events currently saved</h1>
+{% endif %}
 {% endfor %}
-
-
 {% endblock %}
 
