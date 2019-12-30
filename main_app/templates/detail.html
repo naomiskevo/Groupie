@@ -10,14 +10,6 @@
   <input type="submit" class="btn blue darken-4" value="Add Artist">
 </form>
 
-
-<!-- <form action="artists/index" method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="name" value="{{ artist.name }}">
-    <button class="btn waves-effect waves-light green lighten-2" type="submit">Add Artist</button>
-</form>
-<br> -->
-
 <img src="{{ artist.image_url }}" alt="artist">  
 
 
@@ -32,9 +24,6 @@
 {% for info in events %}
 
 <div class="container center-align col s4">
-
- 
-
 <div class="card hoverable grey lighten-3" style='border: 2px solid blue'>
     <div class="card-content blue lighten-3">   
 <p>{{ info.venue.name }} </p>
@@ -44,7 +33,7 @@
 <p>Date/Time: {{ info.datetime }} </p>
 
 <div class="card-content">
-  <form action="detail.html" method="post">
+  <form action="{% url 'add_event' event.id %}" method="post">
     {% csrf_token %}
     {{ event_form.as_p }}
     <input type="submit" class="btn blue darken-4" value="Add Event">
@@ -52,10 +41,6 @@
 </div>
 </div>
 </div>
-
-
-
-
 {% endfor %}
 </div>
 

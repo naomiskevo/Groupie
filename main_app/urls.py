@@ -11,4 +11,5 @@ urlpatterns = [
     path('artists/<int:artist_id>/add_artist/', views.add_artist, name='add_artist'),
     path('events/<int:event_id>/add_event/', views.add_event, name='add_event'),
     path('artists/<int:pk>/delete/', views.ArtistDelete.as_view(), name='artist_delete'),
+    path('events/<int:pk>/delete/', views.EventDelete.as_view(), name='event_delete'),
 ]

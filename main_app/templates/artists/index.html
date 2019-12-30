@@ -7,7 +7,7 @@
 
 <div class = "row">
 
-{% if artist %}
+
 {% for artist in artists %}
 <div class="container center-align">
     <div class="card hoverable blue lighten-5">
@@ -18,9 +18,7 @@
 </div>
 </div>
 <a class="btn" href="{% url 'artist_delete' artist.id %}">Delete</a>
-{% else %}
-<h1>You have no artists currently saved</h1>
-{% endif %}
+
 {% endfor %}
 {% endblock %}
 
