@@ -5,7 +5,19 @@
 <h1> My Events</h1>
 </div>
 
+<div class = "row">
 
+{% for event in events %}
+<div class="container center-align">
+    <div class="card hoverable blue lighten-5">
+        <div class="card-content blue lighten-4"> 
+<h1>{{ event.name }}</h1>
 
-
+        </div>
+    </div>
+</div>
+</div>
+<a class="btn" href="{% url 'event_delete' event.id %}">Delete</a>
+{% endfor %}
 {% endblock %}
+

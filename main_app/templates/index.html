@@ -3,16 +3,31 @@
 
 
 <div class='container center-align'>
-    <h1>Browse Artists</h1>
-<br><br><br>
+
+<br><br>
 </div>
     <div class="container" style='width:50%'>
     <form class="search-box" action="detail" method="POST">
         {% csrf_token %}
-        <input type="text" name='name_field'class="blue-grey lighten-4">
-        <input type="submit" value="Search" class="btn blue-grey darken 2">
+        <div class='row'>
+        <div class='container col s10 input-field'>
+            <label for="search" style='color:rgb(0, 0, 0)'>&nbsp;&nbsp;Browse Artists</label>
+       <input id='search' style= 'border-radius: 15px;' type="text" name='name_field'class="blue lighten-4 validate">
+
+        </div>
+        <div class='container col s2'>
+        <input style= 'border-radius: 15px; margin: 20px' type="submit" value="Search" class="btn blue darken-4">
+        </div>
+    </div>
     </form>
 </div>
 
-<div w-type="event-discovery" w-tmapikey="VN3z590lf4nzKObwvWNHmCnXUwY7WU6j" w-googleapikey="YOUR_GOOGLE_API_KEY" w-keyword="Music" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-radius="25" w-period="day" w-layout="horizontal" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_771k8" w-source="" w-branding="Ticketmaster" w-latlong="34.0390107,-118.2672801"></div>
-{% endblock %}    
+
+
+<br>
+<div class = 'container'>
+    <div w-type="event-discovery" w-tmapikey="pLOeuGq2JL05uEGrZG7DuGWu6sh2OnMz" w-googleapikey="YOUR_GOOGLE_API_KEY" w-keyword="" w-theme="grid" w-colorscheme="custom" w-width="100%" w-height="550" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Austin" w-period="week" w-layout="fullwidth" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_dyg46" w-countrycode="US" w-source="" w-branding="Ticketmaster" w-countercolor="#0d47a1" w-bordercolor="#0d47a1" w-buybuttonbackgroundcolor="#0d47a1" w-poweredbybackgroundcolor="#0d47a1" w-showloadmorebutton="true" w-showmorebuttonbackgroundhovercolor="#63a5c2" w-showmorebuttonbackgroundcolor="#95c6db" w-descriptioncolor="#0d47a1" w-backgroundcolor="#ffffff" w-buybuttonbackgroundhovercolor="#689ed1" w-datecolor="#000000" w-titlehovercolor="#6876e3" w-titlecolor="#000000" w-latlong=""></div>
+</div>
+<br>
+{% endblock %}     
+<!-- when the user searches an artist we get lat and long from events,  -->

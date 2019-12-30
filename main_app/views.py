@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import ModelFormMixin
 from django.db import models
 from .models import Artist, Event
-from .forms import ArtistForm
+from .forms import ArtistForm, EventForm
 import requests
 import os
 import json
@@ -18,45 +18,24 @@ from django.contrib.auth.models import User
 
 # Create your views here.
     
-# def add_artist(request, artist_id):
-#   # create the ModelForm using the data in request.POST
-#   form = ArtistForm(request.POST)
-#   # validate the form
-#   if form.is_valid():
-#     # don't save the form to the db until it
-#     # has the artist_id assigned
-#     new_artist = form.save(commit=False)
-#     new_artist.artist_id = artist_id
-#     new_artist.save()
-#   return redirect('artists/index.html', artist_id=artist_id)
-
-# def artist_create(request):
-#   user_id = request.user.id
-#   print(user_id)
-#   user = User.objects.get(id=user_id)
-#   artist_bio = 'fake bio data'
-#   print(user)
-#   data = request.POST.copy()
-#   artist_name = data.get('name')  
-#   print(artist_name)
-#   artist = Artist(name=artist_name, bio=artist_bio)
-#   artist.save()
-#   return render(request, 'artists/index.html')
-
-
 def add_artist(request, artist_id):
-  # create the custom ModelForm using the data in request.POST
-  print('----------------------------<(^_^)>--------')
   form = ArtistForm(request.POST)
-  # validate the form
   if form.is_valid():
-    # don't save the form until the user_id is assigned
     new_artist = form.save(commit=False)
-    # you have the user already (request.user), no need to get from the db
     new_artist.user = request.user
     new_artist.save()
   return redirect('/artists/', {
     'artists': new_artist
+  })
+
+def add_event(request, event_id):
+  form = EventForm(request.POST)
+  if form.is_valid():
+    new_event = form.save(commit=False)
+    new_event.user = request.user
+    new_event.save()
+  return redirect('/events/', {
+    'events': new_event
   })
 
 
@@ -68,12 +47,27 @@ def show(request):
     req = req.json()
     events = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}/events?app_id={appKey}")
     events = events.json()
+    print(events)
     artist_form = ArtistForm()
+    event_form = EventForm()
     return render(request, 'detail.html',{
       'artist': req,
       'events': events,
-      'artist_form': artist_form
+      'artist_form': artist_form,
+      'event_form': event_form
     }) 
+
+
+
+
+class ArtistDelete(DeleteView):
+  model = Artist
+  success_url = '/artists/'
+
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/events/'
+
 
 
 def add_photo(request, event_id):
@@ -95,16 +89,7 @@ def add_photo(request, event_id):
       print('An error occurred uploading file to S3')
   return redirect('events/index.html', event_id=event_id)
   
-# =======
-# # https://Ticketmasterstefan-skliarovV1.p.rapidapi.com/searchEvents
-# def home(request):
-#   # Example: https://app.ticketmaster.com/discovery/v2/events.json?apikey=VN3z590lf4nzKObwvWNHmCnXUwY7WU6j
-#     myKey = os.environ['TICKET_MASTER']
-#     req = requests.get(f"https://app.ticketmaster.com/discovery/v2/events?apikey={myKey}&keyword=Music&locale=*")
-#     req = req.json()
-#     print('------------------<(O_O)>-----------------')
-#     return render(request, 'index.html')
-# >>>>>>> bleeding-edge
+
 
 def home(request):
   return render(request, 'index.html') 
