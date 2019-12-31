@@ -10,5 +10,5 @@ class ArtistForm(ModelForm):
 class EventForm(ModelForm):
   class Meta:
     model = Event
-    fields = ['name', 'tickets', 'date', 'image', 'location', 'city', 'event_url']
+    fields = ['name', 'tickets', 'image', 'location', 'city', 'url']
 
