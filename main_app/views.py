@@ -24,19 +24,16 @@ def add_artist(request, artist_id):
     new_artist = form.save(commit=False)
     new_artist.user = request.user
     new_artist.save()
-  return redirect('/artists/', {
-    'artists': new_artist
-  })
+  return redirect('/artists/')
 
 def add_event(request, event_id):
   form = EventForm(request.POST)
   if form.is_valid():
+    print('AYE CAN I LIVE???')
     new_event = form.save(commit=False)
     new_event.user = request.user
     new_event.save()
-  return redirect('/events/', {
-    'events': new_event
-  })
+  return redirect('events')
 
 
 
@@ -47,7 +44,6 @@ def show(request):
     req = req.json()
     events = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}/events?app_id={appKey}")
     events = events.json()
-    print(events)
     artist_form = ArtistForm()
     event_form = EventForm()
     return render(request, 'detail.html',{
@@ -89,8 +85,6 @@ def add_photo(request, event_id):
       print('An error occurred uploading file to S3')
   return redirect('events/index.html', event_id=event_id)
   
-
-
 def home(request):
   return render(request, 'index.html') 
 
