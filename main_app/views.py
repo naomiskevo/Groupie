@@ -29,11 +29,10 @@ def add_artist(request, artist_id):
 def add_event(request, event_id):
   form = EventForm(request.POST)
   if form.is_valid():
-    print('AYE CAN I LIVE???')
     new_event = form.save(commit=False)
     new_event.user = request.user
     new_event.save()
-  return redirect('events')
+  return redirect('/events/')
 
 
 
@@ -89,7 +88,8 @@ def home(request):
   return render(request, 'index.html') 
 
 def events_index(request):
-    return render(request, 'events/index.html')
+    events = Event.objects.all()
+    return render(request, 'events/index.html', { 'events': events })
 
 def about(request):
     return render(request, 'about.html')
