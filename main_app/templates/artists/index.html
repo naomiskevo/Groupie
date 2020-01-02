@@ -11,13 +11,13 @@
 
 
 {% for artist in artists %}
+
 <div class="container center-align col l4 s4">
     <div class="card hoverable blue lighten-4" style='border: 2px solid black;'>
         
 <h3 style='white-space: nowrap; overflow: hidden;'>{{ artist.name }}</h3>
 <img src="{{ artist.image }}" alt="artist" style='height:150px'>
-     
-<p>{{ artist.bio }} </p>
+
 
 
     <a class="btn blue darken-4" href="{% url 'artist_delete' artist.id %}">Delete</a>

@@ -4,8 +4,10 @@
 
 
 <div class='container center-align'>
-<h1>{{ artist.name }}</h1>
+
+<h3>{{ artist.name }}</h3>
 <img src="{{ artist.image_url }}" alt="artist"  style='height:350px'> 
+
 
 <br><br><br>
 
@@ -21,12 +23,13 @@
 
 
 
-<h1>Upcoming Events</h1>
+<h3>Upcoming Events</h3>
 <br>
 
 
 <div class = "row">
 {% for info in events %}
+
 <div class="container center-align col l4 s3">
 <div class="card hoverable grey lighten-3" style='border: 2px solid black;'>
 <div class="card-content blue lighten-3">   
@@ -36,6 +39,7 @@
 <p style='white-space: nowrap; overflow: hidden;'>State: {{ info.venue.region }} </p>
 <p style='white-space: nowrap; overflow: hidden;'>City: {{ info.venue.city }} </p>
 <p style='white-space: nowrap; overflow: hidden;'>Date/Time: {{ info.datetime }} </p>
+
 <a href="{{ info.url }}">Tickets</a> 
 
 
@@ -44,14 +48,18 @@
     {% csrf_token %}
     {{ event_form.as_hidden }}
     <input type="hidden" name="name" value="{{ info.venue.name }}">
-    <input type="hidden" name="tickets" value="{{ info.venue.name }}">
-    <input type="hidden" name="image" value="{{ info.venue.name }}">
-    <input type="hidden" name="location" value="{{ info.venue.name }}">
+    <input type="hidden" name="tickets" value="{{ info.url }}">
+    <input type="hidden" name="image" value="{{ artist.image_url }}">
+    <input type="hidden" name="location" value="{{ info.venue.country }}">
     <input type="hidden" name="city" value="{{ info.venue.city }}">
-    <input type="hidden" name="url" value="{{ info.venue.name }}">
+    <input type="hidden" name="url" value="{{ info.url }}">
     <button type="submit" class="btn blue darken-4">Add Event</button>  
-
   </form>
+
+
+
+
+
 </div>
 </div>
 </div>
