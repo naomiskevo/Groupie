@@ -18,7 +18,7 @@ class Artist(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=100)
     tickets = models.URLField(max_length=250)
-    image = models.CharField(max_length=100)
+    image = models.URLField(max_length=100)
     location = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     url= models.URLField(max_length=250)

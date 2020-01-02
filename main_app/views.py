@@ -46,6 +46,7 @@ def show(request):
     req = req.json()
     events = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}/events?app_id={appKey}")
     events = events.json()
+    print(events)
     artist_form = ArtistForm()
     event_form = EventForm()
     return render(request, 'detail.html',{
