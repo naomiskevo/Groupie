@@ -5,6 +5,8 @@
 <h1> My Artists</h1>
 </div>
 
+
+
 <div class = "row">
 
 
@@ -14,12 +16,19 @@
         <div class="card-content blue lighten-4"> 
 <h1>{{ artist.name }}</h1>
 <img src="{{ artist.image }}" alt="artist">
-        </div>
-    </div>
+     
+<p>{{ artist.bio }} </p>
+
+
+
+    <a class="btn blue darken-4" href="{% url 'artist_delete' artist.id %}">Delete</a>
+
 </div>
 </div>
-<a class="btn" href="{% url 'artist_delete' artist.id %}">Delete</a>
+</div>
 
 {% endfor %}
+</div>
+
 {% endblock %}
 

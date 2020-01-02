@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+
 <div class='container center-align'>
 <h1>{{ artist.name }}</h1>
-<img src="{{ artist.image_url }}" alt="artist">  
+<img src="{{ artist.image_url }}" alt="artist"> 
+
+<br><br><br>
 
 <form action="{% url 'add_artist' artist.id %}" method="post">
   {% csrf_token %}
@@ -15,7 +19,7 @@
 
 
 
-<br>
+
 
 <h1>Upcoming Events</h1>
 <br>
@@ -25,7 +29,7 @@
 <div class="container center-align col s4">
 <div class="card hoverable grey lighten-3" style='border: 2px solid blue'>
 <div class="card-content blue lighten-3">   
-      <h5>  {{ info.venue.name }} </h5>
+      <p>  {{ info.venue.name }} </p>
   </div>
 <p>Country: {{ info.venue.country }}</p>
 <p>State: {{ info.venue.region }} </p>
@@ -50,7 +54,8 @@
 </div>
 </div>
 </div>
-</div>
+
 {% endfor %}
+</div>
 
 {% endblock %}
