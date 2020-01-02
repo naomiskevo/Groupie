@@ -1,1 +1,1 @@
-web: gunicorn groupieapp.wsgi
+web: gunicorn groupie.wsgi
