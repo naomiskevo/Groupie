@@ -8,25 +8,24 @@
 
 
 <div class = "row">
-    {% for artist in artists %}
 
-<div class="container center-align col s4">
 
- 
-
-<div class="card hoverable grey lighten-3" style='border: 2px solid blue; border-radius: 15px;''>
-    <div class="card-content blue lighten-3" style= 'border-radius: 15px;'>   
-<p>{{ artist.name }} </p>
-    </div>
+{% for artist in artists %}
+<div class="container center-align">
+    <div class="card hoverable blue lighten-5">
+        <div class="card-content blue lighten-4"> 
+<h1>{{ artist.name }}</h1>
+<img src="{{ artist.image }}" alt="artist">
+     
 <p>{{ artist.bio }} </p>
 
 
-<div class="card-content">
-    <a class="btn blue darken-4" href="{% url 'artist_delete' artist.id %}">Delete</a>
-</div>
-</div>
-</div>
 
+    <a class="btn blue darken-4" href="{% url 'artist_delete' artist.id %}">Delete</a>
+
+</div>
+</div>
+</div>
 
 {% endfor %}
 </div>

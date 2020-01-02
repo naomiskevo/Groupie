@@ -5,7 +5,26 @@
 <h1> My Events</h1>
 </div>
 
+<div class="row">
 
 
+{% for event in events %}
 
+<div class="container center-align">
+    <div class="card hoverable blue lighten-5">
+        <div class="card-content blue lighten-4"> 
+<h1>{{ event.name }}</h1>
+<h6>{{ event.tickets }}</h6>
+<h6>{{ event.image }}</h6>
+<h6>{{ event.location }}</h6>
+<h6>{{ event.city }}</h6>
+<h6>{{ event.url }}</h6>
+<a class="btn blue darken-4" href="{% url 'event_delete' event.id %}">Delete</a>
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% endfor %}
 {% endblock %}

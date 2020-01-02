@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import ModelFormMixin
 from django.db import models
 from .models import Artist, Event
-from .forms import ArtistForm
+from .forms import ArtistForm, EventForm
 import requests
 import os
 import json
@@ -18,22 +18,22 @@ from django.contrib.auth.models import User
 
 # Create your views here.
     
-
-
 def add_artist(request, artist_id):
-  # create the custom ModelForm using the data in request.POST
-  print('----------------------------<(^_^)>--------')
   form = ArtistForm(request.POST)
-  # validate the form
   if form.is_valid():
-    # don't save the form until the user_id is assigned
     new_artist = form.save(commit=False)
-    # you have the user already (request.user), no need to get from the db
     new_artist.user = request.user
     new_artist.save()
-  return redirect('/artists/', {
-    'artists': new_artist
-  })
+  return redirect('/artists/')
+
+
+def add_event(request, event_id):
+  form = EventForm(request.POST)
+  if form.is_valid():
+    new_event = form.save(commit=False)
+    new_event.user = request.user
+    new_event.save()
+  return redirect('/events/')
 
 
 
@@ -45,10 +45,12 @@ def show(request):
     events = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}/events?app_id={appKey}")
     events = events.json()
     artist_form = ArtistForm()
+    event_form = EventForm()
     return render(request, 'detail.html',{
       'artist': req,
       'events': events,
-      'artist_form': artist_form
+      'artist_form': artist_form,
+      'event_form': event_form
     }) 
 
 
@@ -57,8 +59,10 @@ def show(request):
 class ArtistDelete(DeleteView):
   model = Artist
   success_url = '/artists/'
-  print('we made it to artist delete AAFFFFFF')
 
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/events/'
 
 
 
@@ -81,20 +85,19 @@ def add_photo(request, event_id):
       print('An error occurred uploading file to S3')
   return redirect('events/index.html', event_id=event_id)
   
-
-
 def home(request):
   return render(request, 'index.html') 
 
 def events_index(request):
-    return render(request, 'events/index.html')
+  events = Event.objects.all()
+  return render(request, 'events/index.html', { 'events': events })
 
 def about(request):
-    return render(request, 'about.html')
+  return render(request, 'about.html')
 
 def artists_index(request):
-    artists = Artist.objects.all()
-    return render(request, 'artists/index.html', { 'artists': artists })
+  artists = Artist.objects.all()
+  return render(request, 'artists/index.html', { 'artists': artists })
 
 def signup(request):
   error_message = ''
