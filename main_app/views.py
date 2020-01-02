@@ -6,6 +6,7 @@ from django.views.generic.edit import ModelFormMixin
 from django.db import models
 from .models import Artist, Event
 from .forms import ArtistForm, EventForm
+from django.contrib.auth.decorators import login_required
 import requests
 import os
 import json
@@ -17,7 +18,8 @@ from django.contrib.auth.models import User
 
 
 # Create your views here.
-    
+
+@login_required    
 def add_artist(request, artist_id):
   form = ArtistForm(request.POST)
   if form.is_valid():
@@ -26,7 +28,7 @@ def add_artist(request, artist_id):
     new_artist.save()
   return redirect('/artists/')
 
-
+@login_required
 def add_event(request, event_id):
   form = EventForm(request.POST)
   if form.is_valid():
@@ -65,7 +67,7 @@ class EventDelete(DeleteView):
   success_url = '/events/'
 
 
-
+@login_required
 def add_photo(request, event_id):
 	# photo-file was the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)
@@ -88,6 +90,7 @@ def add_photo(request, event_id):
 def home(request):
   return render(request, 'index.html') 
 
+@login_required
 def events_index(request):
   events = Event.objects.all()
   return render(request, 'events/index.html', { 'events': events })
@@ -95,6 +98,7 @@ def events_index(request):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def artists_index(request):
   artists = Artist.objects.all()
   return render(request, 'artists/index.html', { 'artists': artists })
