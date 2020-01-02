@@ -26,6 +26,7 @@ def add_artist(request, artist_id):
     new_artist.save()
   return redirect('/artists/')
 
+
 def add_event(request, event_id):
   form = EventForm(request.POST)
   if form.is_valid():
@@ -88,15 +89,15 @@ def home(request):
   return render(request, 'index.html') 
 
 def events_index(request):
-    events = Event.objects.all()
-    return render(request, 'events/index.html', { 'events': events })
+  events = Event.objects.all()
+  return render(request, 'events/index.html', { 'events': events })
 
 def about(request):
-    return render(request, 'about.html')
+  return render(request, 'about.html')
 
 def artists_index(request):
-    artists = Artist.objects.all()
-    return render(request, 'artists/index.html', { 'artists': artists })
+  artists = Artist.objects.all()
+  return render(request, 'artists/index.html', { 'artists': artists })
 
 def signup(request):
   error_message = ''
