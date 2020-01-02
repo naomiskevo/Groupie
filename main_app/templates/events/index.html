@@ -5,24 +5,25 @@
 <h1> My Events</h1>
 </div>
 
-<div class = "row">
+<div class="row">
 
 
 {% for event in events %}
+
 <div class="container center-align">
     <div class="card hoverable blue lighten-5">
         <div class="card-content blue lighten-4"> 
 <h1>{{ event.name }}</h1>
-<h4>{{ event.tickets }}</h4>
-<h4>{{ event.image }}</h4>
-<h4>{{ event.location }}</h4>
-<h4>{{ event.city }}</h4>
-<h4>{{ event.url }}</h4>
+<h6>{{ event.tickets }}</h6>
+<h6>{{ event.image }}</h6>
+<h6>{{ event.location }}</h6>
+<h6>{{ event.city }}</h6>
+<h6>{{ event.url }}</h6>
+<a class="btn" href="{% url 'event_delete' event.id %}">Delete</a>
         </div>
     </div>
 </div>
 </div>
-<a class="btn" href="{% url 'event_delete' event.id %}">Delete</a>
 
 {% endfor %}
 {% endblock %}
