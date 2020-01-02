@@ -17,12 +17,18 @@
 <img src="{{ event.image }}" alt="artistimage">
 <br>
 <a href="{{ event.tickets }}">Tickets</a>
-<h6>{{ event.location }}</h6>
-<h6>{{ event.city }}</h6>
+<h4>{{ event.location }}</h4>
+<h4>{{ event.city }}</h4>
 <a href="{{ event.url }}">BandsInTown</a>
 <br>
 <a class="btn blue darken-4" href="{% url 'event_delete' event.id %}">Delete</a>
-
+<h3>Event Photos</h3>
+<br>
+{% for photo in event.photo_set.all %}
+<img class="responsive-img card-panel" src="{{photo.url}}">
+{% empty %}
+<div class="card-panel teal-text center-align">No Photos Uploaded</div>
+{% endfor %}
         </div>
     </div>
 </div>
