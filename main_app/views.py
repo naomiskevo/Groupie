@@ -10,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 import requests
 import os
 import json
+import uuid
+import boto3
 
 
 from django.contrib.auth.models import User
@@ -70,6 +72,12 @@ class EventDelete(DeleteView):
 
 @login_required
 def add_photo(request, event_id):
+  print('DID WE MAKE IT TO THE PHOTO FUNCTION')
+  print('DID WE MAKE IT TO THE PHOTO FUNCTION')
+  print('DID WE MAKE IT TO THE PHOTO FUNCTION')
+  print('DID WE MAKE IT TO THE PHOTO FUNCTION')
+  S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
+  BUCKET = 'groupiesei'
 	# photo-file was the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
