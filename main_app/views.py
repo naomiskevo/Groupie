@@ -4,12 +4,15 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import ModelFormMixin
 from django.db import models
-from .models import Artist, Event
+from .models import Artist, Event, Photo
 from .forms import ArtistForm, EventForm
 from django.contrib.auth.decorators import login_required
 import requests
 import os
 import json
+import uuid
+import boto3
+import traceback
 
 
 from django.contrib.auth.models import User
@@ -46,7 +49,6 @@ def show(request):
     req = req.json()
     events = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}/events?app_id={appKey}")
     events = events.json()
-    print(events)
     artist_form = ArtistForm()
     event_form = EventForm()
     return render(request, 'detail.html',{
@@ -70,9 +72,11 @@ class EventDelete(DeleteView):
 
 @login_required
 def add_photo(request, event_id):
+  S3_BASE_URL = 'https://s3.us-west-1.amazonaws.com/'
+  BUCKET = 'groupieapp'
 	# photo-file was the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)
-  if photo_file:
+  if photo_file: 
     s3 = boto3.client('s3')
     # need a unique "key" for S3 / needs image file extension too
     key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
@@ -84,9 +88,9 @@ def add_photo(request, event_id):
       # we can assign to cat_id or cat (if you have a cat object)
       photo = Photo(url=url, event_id=event_id)
       photo.save()
-    except:
-      print('An error occurred uploading file to S3')
-  return redirect('events/index.html', event_id=event_id)
+    except Exception as e:
+      print ('%s (%s)' % (e, type(e)))
+  return redirect('/events/', event_id=event_id)
   
 def home(request):
   return render(request, 'index.html') 
