@@ -10,31 +10,28 @@ Search artists to see all their upcoming events. Create an account to add artist
 
 ### Groupie Preview
 
-## Search an artist
+## Search an artist or find local events in your area
 <img src="https://i.imgur.com/jT3ry5V.png"/>
 
-## Search an artist
-<img src="https://i.imgur.com/jT3ry5V.png"/>
+## Add the artist to your own que of artists
+<img src="https://i.imgur.com/qZd33vs.png"/>
 
-## Search an artist
-<img src="https://i.imgur.com/jT3ry5V.png"/>
+<img src="https://i.imgur.com/YC7ezpn.png"/>
 
-## Search an artist
-<img src="https://i.imgur.com/jT3ry5V.png"/>
+## Find events
+<img src="https://i.imgur.com/whWIRKj.png"/>
 
-## Search an artist
-<img src="https://i.imgur.com/jT3ry5V.png"/>
+## Save event information such as date, location, and ticket url
+<img src="https://i.imgur.com/XFTeGYH.png"/>
 
-## Search an artist
-<img src="https://i.imgur.com/jT3ry5V.png"/>
+## Upload all your photos from the event
+<img src="https://i.imgur.com/OlzJnyg.png"/>
+
+
 
 
 ### User Stories
 * AAU I should be able to log in using django's built in authentication system.
-
-* AAU I should be able to specify a location for Groupie to search
-
-* AAU I should be able to search local artists and see a list of upcoming events
 
 * AAU I should be able to add artists to a favorites list to keep track of their events
 
