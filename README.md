@@ -6,7 +6,7 @@
 With this app, keeping tabs on your favorite artists and events in your city just got a lot easier.
 
 ### Instuctions
-Search artists to see all their upcoming events. Create an account to add artists and events to your own personal lists and even add photos from the event you attended to your own personal event photo catalog!
+Browse local events or search artists for a list of their upcoming shows. Create an account to save artists or events that interest you. Groupie even allows you to upload photos from the event you attended to your own personal event photo catalog!
 
 ### Groupie Preview
 
