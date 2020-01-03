@@ -26,12 +26,12 @@
 <h3 class="groupietitle">Upcoming Events</h3>
 <br>
 
-
+</div>
 <div class = "row">
 {% for info in events %}
+<div class="container center-align col s4">
+<div class="card hoverable grey lighten-3" style='border: 2px solid blue'>
 
-<div class="container center-align col l4 s3">
-<div class="card hoverable grey lighten-3" style='border: 2px solid black;'>
 <div class="card-content blue lighten-3">   
       <p style='white-space: nowrap; overflow: hidden;'>  {{ info.venue.name }} </p>
   </div>
