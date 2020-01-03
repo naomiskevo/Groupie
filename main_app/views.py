@@ -73,8 +73,8 @@ class EventDelete(DeleteView):
 
 @login_required
 def add_photo(request, event_id):
-  S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
-  BUCKET = 'groupiesei'
+  S3_BASE_URL = 'https://s3.us-west-1.amazonaws.com/'
+  BUCKET = 'groupieapp'
 	# photo-file was the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)
   if photo_file: 
