@@ -2,32 +2,37 @@
 {% block content %}
 
 <div class="container center-align">
-<h1> My Artists</h1>
+<h1 style="font-family: 'Archivo Black', sans-serif;"> My Artists</h1>
 </div>
 
-
+<div class='container'>
 
 <div class = "row">
 
 
 {% for artist in artists %}
-<div class="container center-align">
-    <div class="card hoverable blue lighten-5">
-        <div class="card-content blue lighten-4"> 
-<h3>{{ artist.name }}</h3>
-<img src="{{ artist.image }}" alt="artist">
-     
 
 
+<div class="container center-align col l4 s4">
+    <div class="card hoverable blue lighten-4" style='border: 2px solid black;'>
+        
+<h3 style='white-space: nowrap; overflow: hidden;'>{{ artist.name }}</h3>
+<img src="{{ artist.image }}" alt="artist" style='height:150px'>
 
+<br>
+<form class="search-box" action="../detail" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name='name_field' value="{{ artist.name }}">
+    <input style= 'border-radius: 15px; margin: 20px' type="submit" value="Events" class="btn blue darken-4">
+    </form>
     <a class="btn blue darken-4" href="{% url 'artist_delete' artist.id %}">Delete</a>
+<br><br>
+</div>
+</div>
 
-</div>
-</div>
-</div>
 
 {% endfor %}
 </div>
-
+</div>
 {% endblock %}
 
