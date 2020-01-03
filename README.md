@@ -3,6 +3,8 @@
 ### The Mission
 With this app, keeping tabs on your favorite artists and events in your city just got a lot easier.
 
+<a href="https://groupieapp.herokuapp.com">Groupie</a>
+
 ### Instuctions
 Browse local events or search artists for a list of their upcoming shows. Create an account to save artists or events that interest you. Groupie even allows you to upload photos from the event you attended to your own personal event photo catalog!
 
