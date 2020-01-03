@@ -43,11 +43,12 @@ def add_event(request, event_id):
 
 
 def show(request):
-    searched_artist = request.POST['name_field']
+    artist = request.POST['name_field']
+    myKey = os.environ['SECRET_KEY']
     appKey = os.environ['APP_ID']
-    req = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}?app_id={appKey}")
+    req = requests.get(f"http://rest.bandsintown.com/artists/{artist}?app_id={appKey}")
     req = req.json()
-    events = requests.get(f"http://rest.bandsintown.com/artists/{searched_artist}/events?app_id={appKey}")
+    events = requests.get(f"http://rest.bandsintown.com/artists/{artist}/events?app_id={appKey}")
     events = events.json()
     artist_form = ArtistForm()
     event_form = EventForm()
@@ -93,12 +94,18 @@ def add_photo(request, event_id):
   return redirect('/events/', event_id=event_id)
   
 def home(request):
-  return render(request, 'index.html') 
+    myKey = os.environ['SECRET_KEY']
+    brite = os.environ['EVENTBRITE_TOKEN']
+    req = requests.get(f"https://www.eventbriteapi.com/v3/users/me/?token={brite}")
+    req = req.json()
+    return render(request, 'index.html')
+
 
 @login_required
 def events_index(request):
   events = Event.objects.all()
   return render(request, 'events/index.html', { 'events': events })
+
 
 def about(request):
   return render(request, 'about.html')
