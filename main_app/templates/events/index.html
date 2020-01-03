@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container center-align">
-<h1> My Events</h1>
+<h1 class="groupietitle"> My Events</h1>
 </div>
 <div class="row">
 {% for event in events %}
 <div class="container">
     <div class="card hoverable blue lighten-5 center-align" style='border: 2px solid black;'>
         <div class="card-content blue lighten-4"> 
-            
-        <h4>{{ event.name }}</h4>
-        <img src="{{ event.image }}" alt="artistimage" style='height:250px'>
+        <h4 class="eventtitle">{{ event.name }}</h4>
+        <br>
+        <hr>
+        <img src="{{ event.image }}" alt="artistimage">
 <br>
         <h4><a href="{{ event.tickets }}">Tickets</a> </h4>
         <h4><a href="{{ event.url }}">BandsInTown</a> </h4>
         <h4>{{ event.city }}</h4>
         <h4>{{ event.location }}</h4>
 <br>
-
         <a class="btn blue darken-4" href="{% url 'event_delete' event.id %}">Delete</a>
 <br><br>
         <div class="card-content blue lighten-3" style='border: 2px solid black;'> 
-        <h3>Event Photos:</h3>
+        <h3 class="eventtitle">Event Photos:</h3>
 <br>
 {% for photo in event.photo_set.all %}
 <div>
@@ -29,7 +29,6 @@
 </div>
 {% empty %}
     <div class="card-panel blue-text center-align">No Photos Uploaded</div>
-
 {% endfor %}
 <form action="{% url 'add_photo' event.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
     {% csrf_token %}
