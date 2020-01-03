@@ -20,3 +20,17 @@ body {
     padding-top: 0;
   }
 
+
+.groupietitle {
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.groupieevent {
+  font-size: x-large;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.eventtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}

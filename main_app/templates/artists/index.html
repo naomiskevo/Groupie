@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="container center-align">
-<h1> My Artists</h1>
+<h1 style="font-family: 'Archivo Black', sans-serif;"> My Artists</h1>
 </div>
 
 <div class='container'>
@@ -20,11 +20,17 @@
 <img src="{{ artist.image }}" alt="artist" style='height:150px'>
 
 <br>
-
+<form class="search-box" action="../detail" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name='name_field' value="{{ artist.name }}">
+    <input style= 'border-radius: 15px; margin: 20px' type="submit" value="Events" class="btn blue darken-4">
+    </form>
     <a class="btn blue darken-4" href="{% url 'artist_delete' artist.id %}">Delete</a>
 <br><br>
 </div>
+
 </div>
+
 
 
 {% endfor %}
