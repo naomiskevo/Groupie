@@ -8,8 +8,10 @@ Browse local events or search artists for a list of their upcoming shows. Create
 
 ### Groupie Preview
 
+
 ## Search an artist or find local events in your area
 <img src="https://i.imgur.com/jT3ry5V.png"/>
+
 
 ## Add the artist to your own que of artists
 <img src="https://i.imgur.com/qZd33vs.png"/>
