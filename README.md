@@ -5,17 +5,28 @@
 ### The Mission
 With this app, keeping tabs on your favorite artists and events in your city just got a lot easier.
 
-<a href="https://trello.com/b/5bd4Wjhi/sei-unit-3">Trello</a>
-
-<a href="https://docs.google.com/presentation/d/1rX2UsgPlWbdwC6bApwqBDTm4tiYba6nc6R2dcXu1leY/edit?usp=sharing">Pitch Deck</a>
-
 ### Instuctions
-Search artists to see all their upcoming events. Create an account in order to add artists and events to your own personal lists so you never miss out!
+Search artists to see all their upcoming events. Create an account to add artists and events to your own personal lists and even add photos from the event you attended to your own personal event photo catalog!
 
 ### Groupie Preview
-<img src="https://i.imgur.com/SF1MUtL.png" title="source: imgur.com" width="250" height="190"/>
 
-<img src="https://i.imgur.com/ZPIGWCm.png" title="source: imgur.com" width="250" height="190"/>
+## Search an artist
+<img src="https://i.imgur.com/jT3ry5V.png"/>
+
+## Search an artist
+<img src="https://i.imgur.com/jT3ry5V.png"/>
+
+## Search an artist
+<img src="https://i.imgur.com/jT3ry5V.png"/>
+
+## Search an artist
+<img src="https://i.imgur.com/jT3ry5V.png"/>
+
+## Search an artist
+<img src="https://i.imgur.com/jT3ry5V.png"/>
+
+## Search an artist
+<img src="https://i.imgur.com/jT3ry5V.png"/>
 
 
 ### User Stories
