@@ -15,6 +15,8 @@ Search artists to see all their upcoming events. Create an account in order to a
 ### Groupie Preview
 <img src="https://i.imgur.com/SF1MUtL.png" title="source: imgur.com" width="250" height="190"/>
 
+<img src="https://i.imgur.com/ZPIGWCm.png" title="source: imgur.com" width="250" height="190"/>
+
 
 ### User Stories
 * AAU I should be able to log in using django's built in authentication system.
