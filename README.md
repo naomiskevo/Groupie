@@ -12,9 +12,11 @@ With this app, keeping tabs on your favorite artists and events in your city jus
 ### Instuctions
 Search artists to see all their upcoming events. Create an account in order to add artists and events to your own personal lists so you never miss out!
 
-### Screenshots
+### Groupie Preview
+<img src="https://i.imgur.com/SF1MUtL.png" title="source: imgur.com" width="250" height="190"/>
 
-Coming Soon...
+<img src="https://i.imgur.com/ZPIGWCm.png" title="source: imgur.com" width="250" height="190"/>
+
 
 ### User Stories
 * AAU I should be able to log in using django's built in authentication system.
