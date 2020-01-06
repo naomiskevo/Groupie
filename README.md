@@ -64,5 +64,5 @@ Browse local events or search artists for a list of their upcoming shows. Create
 
 ## Credits:
 * ## [Dustin Coffman](https://github.com/DustinAnthonyCoffman)
-* ##[Naomi Skevofilax](https://github.com/naomiskevo)
-* ##[Andrew Smith](https://github.com/AJS3993)
+* ## [Naomi Skevofilax](https://github.com/naomiskevo)
+* ## [Andrew Smith](https://github.com/AJS3993)
