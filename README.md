@@ -58,3 +58,8 @@ Browse local events or search artists for a list of their upcoming shows. Create
 * Search events by date, area, and artist
 
 * Notifications for significant events
+
+(https://groupie-project.herokuapp.com/ "Groupie")
+
+## Credits:
+Dustin Coffman, Naomi Skevofilax, Andrew Smith
