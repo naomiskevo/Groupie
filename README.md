@@ -63,4 +63,6 @@ Browse local events or search artists for a list of their upcoming shows. Create
 
 
 ## Credits:
-Dustin Coffman, Naomi Skevofilax, Andrew Smith
+* ## [Dustin Coffman](https://github.com/DustinAnthonyCoffman)
+* ##[Naomi Skevofilax](https://github.com/naomiskevo)
+* ##[Andrew Smith](https://github.com/AJS3993)
