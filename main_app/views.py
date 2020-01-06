@@ -51,6 +51,7 @@ def show(request):
     events = events.json()
     artist_form = ArtistForm()
     event_form = EventForm()
+    print(events)
     return render(request, 'detail.html',{
       'artist': req,
       'events': events,
